@@ -2,4 +2,3 @@ language: ruby
 build:
   ci:
     - echo $?
-    - echo $?

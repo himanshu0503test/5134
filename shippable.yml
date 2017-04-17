@@ -1,4 +1,13 @@
-language: ruby
+language: node_js
+node_js:
+  - 0.12
 build:
   ci:
-    - echo !!!!
+    - docker ps
+    - if [ -d "elasticsearch" ]; then sudo rm -rf elasticsearch; fi
+    - git clone https://github.com/elastic/elasticsearch.git
+    - if [ -d "kubernetes" ]; then sudo rm -rf kubernetes; fi
+    - git clone https://github.com/kubernetes/kubernetes.git
+    - if [ -d "ansible" ]; then sudo rm -rf ansible; fi
+    - git clone https://github.com/ansible/ansible.git
+  cache: true
